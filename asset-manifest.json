@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Brainz-teck/brainz/static/css/main.fdaf5dd5.css",
+    "main.js": "/Brainz-teck/brainz/static/js/main.92e61192.js",
+    "static/js/347.f2c6f8ac.chunk.js": "/Brainz-teck/brainz/static/js/347.f2c6f8ac.chunk.js",
+    "static/js/444.e5e7de55.chunk.js": "/Brainz-teck/brainz/static/js/444.e5e7de55.chunk.js",
+    "static/js/281.08b0e9a3.chunk.js": "/Brainz-teck/brainz/static/js/281.08b0e9a3.chunk.js",
+    "static/js/333.6c2424d1.chunk.js": "/Brainz-teck/brainz/static/js/333.6c2424d1.chunk.js",
+    "static/js/326.e6b61805.chunk.js": "/Brainz-teck/brainz/static/js/326.e6b61805.chunk.js",
+    "static/js/758.c2101624.chunk.js": "/Brainz-teck/brainz/static/js/758.c2101624.chunk.js",
+    "static/js/313.a659e4d9.chunk.js": "/Brainz-teck/brainz/static/js/313.a659e4d9.chunk.js",
+    "index.html": "/Brainz-teck/brainz/index.html",
+    "main.fdaf5dd5.css.map": "/Brainz-teck/brainz/static/css/main.fdaf5dd5.css.map",
+    "main.92e61192.js.map": "/Brainz-teck/brainz/static/js/main.92e61192.js.map",
+    "347.f2c6f8ac.chunk.js.map": "/Brainz-teck/brainz/static/js/347.f2c6f8ac.chunk.js.map",
+    "444.e5e7de55.chunk.js.map": "/Brainz-teck/brainz/static/js/444.e5e7de55.chunk.js.map",
+    "281.08b0e9a3.chunk.js.map": "/Brainz-teck/brainz/static/js/281.08b0e9a3.chunk.js.map",
+    "333.6c2424d1.chunk.js.map": "/Brainz-teck/brainz/static/js/333.6c2424d1.chunk.js.map",
+    "326.e6b61805.chunk.js.map": "/Brainz-teck/brainz/static/js/326.e6b61805.chunk.js.map",
+    "758.c2101624.chunk.js.map": "/Brainz-teck/brainz/static/js/758.c2101624.chunk.js.map",
+    "313.a659e4d9.chunk.js.map": "/Brainz-teck/brainz/static/js/313.a659e4d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fdaf5dd5.css",
+    "static/js/main.92e61192.js"
+  ]
+}
