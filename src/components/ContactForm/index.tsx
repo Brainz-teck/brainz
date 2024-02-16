@@ -1,4 +1,4 @@
-import { Row, Col } from "antd";
+import { Row, Col, message } from "antd";
 import { withTranslation } from "react-i18next";
 import { Slide, Zoom } from "react-awesome-reveal";
 import { ContactProps, ValidationTypeProps } from "./types";
@@ -9,11 +9,52 @@ import Block from "../Block";
 import Input from "../../common/Input";
 import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
+//import { create } from "domain";
+import axios from "axios";
 
 const Contact = ({ title, content, id, t }: ContactProps) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     validate
   ) as any;
+
+  const createTicket = (e: any) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+    let email: any;
+    let title: any;
+    let description: any;
+    formData.forEach(function (value, key) {
+      if (key === "email") {
+        email = value;
+      } else if (key === "title") {
+        title = value;
+      } else {
+        description = value;
+      }
+    });
+    const apiKey = "UYx1RjRPQDjrk2tUqM";
+    const url = `https://brainz.freshdesk.com/api/v2/tickets`;
+    const ticketData = {
+      subject: title,
+      description: description,
+      email: email,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${btoa(apiKey)}`,
+        "Content-Type": "application/json",
+        // Base64 encoding of API key
+      },
+      body: JSON.stringify(ticketData),
+    };
+    axios
+      .post(url, options)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((er) => console.error(er));
+  };
 
   const ValidationType = ({ type }: ValidationTypeProps) => {
     const ErrorMessage = errors[type];
@@ -32,15 +73,15 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
             <Block title={title} content={content} />
           </Slide>
         </Col>
-        <Col lg={12} md={12} sm={24} xs={24}>
+        {/* <Col lg={12} md={12} sm={24} xs={24}>
           <Slide direction="right">
-            <FormGroup autoComplete="off" onSubmit={handleSubmit}>
+            <FormGroup autoComplete="off" onSubmit={createTicket}>
               <Col span={24}>
                 <Input
                   type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={values.name || ""}
+                  name="email"
+                  placeholder="Your Email"
+                  value={values.email || ""}
                   onChange={handleChange}
                 />
                 <ValidationType type="name" />
@@ -48,9 +89,9 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               <Col span={24}>
                 <Input
                   type="text"
-                  name="email"
-                  placeholder="Your Email"
-                  value={values.email || ""}
+                  name="title"
+                  placeholder="Enter Title"
+                  value={values.name || ""}
                   onChange={handleChange}
                 />
                 <ValidationType type="email" />
@@ -69,7 +110,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               </ButtonContainer>
             </FormGroup>
           </Slide>
-        </Col>
+        </Col> */}
       </Row>
     </ContactContainer>
   );
