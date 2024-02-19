@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://github.com/Brainz-teck/brainz",
+  "homepage": "https://brainz-teck.github.io/brainz/",
   "private": true,
   "dependencies": {
     "@types/node": "^15.14.9",
