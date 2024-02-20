@@ -32,8 +32,8 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         description = value;
       }
     });
-    const apiKey = "UYx1RjRPQDjrk2tUqM";
-    const url = `https://brainz.freshdesk.com/api/v2/tickets`;
+    const apiKey = "";
+    const url = ``;
     const ticketData = {
       subject: title,
       description: description,
