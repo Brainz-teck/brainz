@@ -27,7 +27,7 @@ function FeedBackCard() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, subject, message }),
+      body: JSON.stringify({ email, subject, message }),
     };
     fetch("/sentmail", options)
       .then((res) => {
