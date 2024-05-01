@@ -29,6 +29,7 @@ import jira from "./jira.png";
 import fw from "./fw.png";
 import shopify from "./shopify.png";
 import zoho from "./zoho.png";
+import cross from "./close-circle.svg";
 export {
   airbnb,
   bill,
@@ -61,4 +62,5 @@ export {
   fw,
   shopify,
   zoho,
+  cross,
 };

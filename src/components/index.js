@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-import Billing from "./Billing";
+
 import Business from "./Business";
 import Button from "./Button";
 import CardDeal from "./CardDeal";
@@ -9,14 +9,14 @@ import CTA from "./CTA";
 import FeedBackCard from "./FeedBackCard";
 import Footer from "./Footer";
 import GetStarted from "./GetStarted";
-import Stats from "./Stats";
-import Testimonials from "./Testimonials";
 
+import Testimonials from "./Testimonials";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsAndConditions from "./TermsAndConditions";
 export {
   Navbar,
   Hero,
   CardDeal,
-  Billing,
   Business,
   Button,
   Clients,
@@ -24,6 +24,7 @@ export {
   FeedBackCard,
   Footer,
   GetStarted,
-  Stats,
   Testimonials,
+  PrivacyPolicy,
+  TermsAndConditions,
 };

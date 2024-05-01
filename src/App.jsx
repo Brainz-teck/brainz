@@ -5,7 +5,6 @@ import {
   Navbar,
   Hero,
   CardDeal,
-  Billing,
   Business,
   Button,
   Clients,
@@ -13,7 +12,6 @@ import {
   FeedBackCard,
   Footer,
   GetStarted,
-  Stats,
   Testimonials,
 } from "./components";
 
@@ -34,7 +32,7 @@ function App() {
 
       <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
-          {/* <Stats />  <Billing />  <CardDeal /> <Contactform /> */}
+          {/* <Stats />  <Billing />  <CardDeal /> <Contactform /> <PrivacyPolicy />*/}
           <Business />
           <Clients /> <CTA />
           <Testimonials />
