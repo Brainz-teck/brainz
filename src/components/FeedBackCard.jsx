@@ -4,11 +4,11 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function FeedBackCard() {
   const sentMail = () => {
-    const name = document.getElementById("name").value;
+    //const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
     const message = document.getElementById("message").value;
-    if (name == "" || email == "" || subject == "" || message == "") {
+    if (email == "" || subject == "" || message == "") {
       toast("Please fill all the field", {
         position: "top-center",
         autoClose: 3000,
