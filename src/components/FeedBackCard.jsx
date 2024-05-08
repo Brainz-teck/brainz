@@ -39,13 +39,16 @@ function FeedBackCard() {
         options
       )
       .then((res) => {
-        console.log(res.data);
-        if (res.status === 200)
-          showToast("Submitted successfully,We will get back to you zoon...!");
-        else showToast("Something went wrong, please try again later");
+        if (res.status === 200) {
+          showToast("Submitted successfully, We will get back to you zoon...!");
+          document.getElementById("email").value = "";
+          document.getElementById("subject").value = "";
+          document.getElementById("message").value = "";
+        } else showToast("Something went wrong, please try again later");
       })
       .catch((er) => {
         console.error(er);
+        showToast("Something went wrong, please try again later");
       });
   };
 
