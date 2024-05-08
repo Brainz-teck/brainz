@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../style";
-
+import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function FeedBackCard() {
-  const sentMail = () => {
+  const sentMail = async () => {
     //const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
@@ -23,21 +23,41 @@ function FeedBackCard() {
       });
       return;
     }
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, subject, message }),
+    // const options = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ email, subject, message }),
+    // };
+    const ticketData = {
+      description: message,
+      subject: subject,
+      email: email,
     };
 
-    fetch("/sentmail", options)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((er) => {
-        console.error(er);
-      });
+    let url = `https://brainz.freshdesk.com/api/v2/tickets`;
+    const options = {
+      headers: {
+        Authorization: "Basic " + btoa("UYx1RjRPQDjrk2tUqM" + ":x"),
+        "content-Type": "application/json",
+      },
+
+      // body: JSON.stringify(contactData),
+    };
+    try {
+      const response = await axios.post(url, ticketData, options);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+    // fetch("/sentmail", options)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((er) => {
+    //     console.error(er);
+    //   });
   };
 
   return (
