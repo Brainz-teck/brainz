@@ -34,12 +34,14 @@ function FeedBackCard() {
       description: message,
       subject: subject,
       email: email,
+      priority: 1,
+      status: 2,
     };
-
+    const key = "UYx1RjRPQDjrk2tUqM";
     let url = `https://brainz.freshdesk.com/api/v2/tickets`;
     const options = {
       headers: {
-        Authorization: "Basic " + btoa("UYx1RjRPQDjrk2tUqM" + ":x"),
+        Authorization: "Basic " + btoa(key + ":x"),
         "content-Type": "application/json",
       },
 
