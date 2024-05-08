@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../style";
+
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function FeedBackCard() {
@@ -29,6 +30,7 @@ function FeedBackCard() {
       },
       body: JSON.stringify({ email, subject, message }),
     };
+
     fetch("/sentmail", options)
       .then((res) => {
         console.log(res);

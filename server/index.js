@@ -17,10 +17,32 @@ app.use(express.static(path.join(__dirname, "../")));
 
 app.post("/sentmail", async (req, res) => {
   console.log(req.body);
-  const { name } = req.body;
+  const { email, subject, message } = req.body;
 
-  //console.log(response);
-  res.status(200).send("success");
+  const ticketData = {
+    description: message,
+    subject: subject,
+    email: email,
+  };
+
+  let url = `https://brainz.freshdesk.com/api/v2/tickets`;
+  const options = {
+    headers: {
+      Authorization: "Basic " + btoa("UYx1RjRPQDjrk2tUqM" + ":x"),
+      "content-Type": "application/json",
+    },
+
+    // body: JSON.stringify(contactData),
+  };
+  try {
+    const response = await axios.post(url, ticketData, options);
+    console.log(response.data);
+
+    res.status(200).send({ message: "Success" });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ message: "Failed" });
+  }
 });
 
 app.listen(process.env.PORT || 8080, () => {
