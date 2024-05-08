@@ -30,10 +30,33 @@ function FeedBackCard() {
       },
       body: JSON.stringify({ email, subject, message }),
     };
+    // const ticketData = {
+    //   description: message,
+    //   subject: subject,
+    //   email: email,
+    //   priority: 1,
+    //   status: 2,
+    // };
+    // const key = "UYx1RjRPQDjrk2tUqM";
+    // let url = `https://brainz.freshdesk.com/api/v2/tickets`;
+    // const options = {
+    //   headers: {
+    //     Authorization: "Basic " + btoa(key + ":x"),
+    //     "content-Type": "application/json",
+    //   },
 
-    fetch("/sentmail", options)
+    //   // body: JSON.stringify(contactData),
+    // };
+    // try {
+    //   const response = await axios.post(url, ticketData, options);
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    fetch("https://brainz-server.onrender.com/sentmail", options)
       .then((res) => {
         console.log(res);
+        console.log(res.response);
       })
       .catch((er) => {
         console.error(er);

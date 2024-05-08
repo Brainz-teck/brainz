@@ -26,8 +26,8 @@ app.post("/sentmail", async (req, res) => {
     priority: 1,
     status: 2,
   };
-  const key = "UYx1RjRPQDjrk2tUqM";
-  let url = `https://brainz.freshdesk.com/api/v2/tickets`;
+  const key = process.env.api_key;
+  let url = `https://${process.env.domain}.freshdesk.com/api/v2/tickets`;
   const options = {
     headers: {
       Authorization: "Basic " + btoa(key + ":x"),
