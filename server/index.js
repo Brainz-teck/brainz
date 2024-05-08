@@ -2,11 +2,12 @@ const express = require("express");
 const axios = require("axios");
 const bodyParser = require("body-parser");
 const path = require("path");
-
+const cors = require("cors");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cors());
 //app.use(express.static("src"));
 app.use(express.static(path.join(__dirname, "../")));
 
@@ -38,7 +39,7 @@ app.post("/sentmail", async (req, res) => {
   };
   try {
     const response = await axios.post(url, ticketData, options);
-    console.log(response.data);
+
     res.status(200).send(response.data);
   } catch (error) {
     console.log(error);

@@ -4,23 +4,26 @@ import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function FeedBackCard() {
+  const showToast = (message) => {
+    toast(message, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
   const sentMail = async () => {
     //const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
     const message = document.getElementById("message").value;
     if (email == "" || subject == "" || message == "") {
-      toast("Please fill all the field", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        transition: Bounce,
-      });
+      showToast("Please fill all the field");
       return;
     }
     const options = {
@@ -29,29 +32,6 @@ function FeedBackCard() {
         "Content-Type": "application/json",
       },
     };
-    // const ticketData = {
-    //   description: message,
-    //   subject: subject,
-    //   email: email,
-    //   priority: 1,
-    //   status: 2,
-    // };
-    // const key = "UYx1RjRPQDjrk2tUqM";
-    // let url = `https://brainz.freshdesk.com/api/v2/tickets`;
-    // const options = {
-    //   headers: {
-    //     Authorization: "Basic " + btoa(key + ":x"),
-    //     "content-Type": "application/json",
-    //   },
-
-    //   // body: JSON.stringify(contactData),
-    // };
-    // try {
-    //   const response = await axios.post(url, ticketData, options);
-    //   console.log(response.data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
     axios
       .post(
         "https://brainz-server.onrender.com/sentmail",
@@ -59,8 +39,10 @@ function FeedBackCard() {
         options
       )
       .then((res) => {
-        console.log(res);
-        console.log(res.response);
+        console.log(res.data);
+        if (res.status === 200)
+          showToast("Submitted successfully,We will get back to you zoon...!");
+        else showToast("Something went wrong, please try again later");
       })
       .catch((er) => {
         console.error(er);
