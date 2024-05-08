@@ -23,43 +23,21 @@ function FeedBackCard() {
       });
       return;
     }
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ email, subject, message }),
-    // };
-    const ticketData = {
-      description: message,
-      subject: subject,
-      email: email,
-      priority: 1,
-      status: 2,
-    };
-    const key = "UYx1RjRPQDjrk2tUqM";
-    let url = `https://brainz.freshdesk.com/api/v2/tickets`;
     const options = {
+      method: "POST",
       headers: {
-        Authorization: "Basic " + btoa(key + ":x"),
-        "content-Type": "application/json",
+        "Content-Type": "application/json",
       },
-
-      // body: JSON.stringify(contactData),
+      body: JSON.stringify({ email, subject, message }),
     };
-    try {
-      const response = await axios.post(url, ticketData, options);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-    // fetch("/sentmail", options)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((er) => {
-    //     console.error(er);
-    //   });
+
+    fetch("/sentmail", options)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((er) => {
+        console.error(er);
+      });
   };
 
   return (

@@ -23,12 +23,14 @@ app.post("/sentmail", async (req, res) => {
     description: message,
     subject: subject,
     email: email,
+    priority: 1,
+    status: 2,
   };
-
+  const key = "UYx1RjRPQDjrk2tUqM";
   let url = `https://brainz.freshdesk.com/api/v2/tickets`;
   const options = {
     headers: {
-      Authorization: "Basic " + btoa("UYx1RjRPQDjrk2tUqM" + ":x"),
+      Authorization: "Basic " + btoa(key + ":x"),
       "content-Type": "application/json",
     },
 
@@ -37,11 +39,10 @@ app.post("/sentmail", async (req, res) => {
   try {
     const response = await axios.post(url, ticketData, options);
     console.log(response.data);
-
-    res.status(200).send({ message: "Success" });
+    res.status(200).send(response.data);
   } catch (error) {
     console.log(error);
-    res.status(400).send({ message: "Failed" });
+    res.status(400).send("Failed");
   }
 });
 
