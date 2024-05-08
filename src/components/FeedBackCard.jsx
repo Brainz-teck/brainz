@@ -28,7 +28,6 @@ function FeedBackCard() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, subject, message }),
     };
     // const ticketData = {
     //   description: message,
@@ -53,7 +52,12 @@ function FeedBackCard() {
     // } catch (error) {
     //   console.log(error);
     // }
-    fetch("https://brainz-server.onrender.com/sentmail", options)
+    axios
+      .post(
+        "https://brainz-server.onrender.com/sentmail",
+        { email, subject, message },
+        options
+      )
       .then((res) => {
         console.log(res);
         console.log(res.response);
