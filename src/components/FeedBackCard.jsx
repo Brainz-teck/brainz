@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../style";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
+import { Vortex } from "react-loader-spinner";
 import "react-toastify/dist/ReactToastify.css";
 function FeedBackCard() {
+  const [isClicked, setClicked] = useState(false);
+
   const showToast = (message) => {
     toast(message, {
       position: "top-center",
@@ -17,8 +20,9 @@ function FeedBackCard() {
       transition: Bounce,
     });
   };
-  const sentMail = async () => {
-    //const name = document.getElementById("name").value;
+  const sentMail = async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("submit-btn");
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
     const message = document.getElementById("message").value;
@@ -26,12 +30,15 @@ function FeedBackCard() {
       showToast("Please fill all the field");
       return;
     }
+    setClicked(true);
+    btn.disabled = true;
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
     };
+
     axios
       .post(
         "https://brainz-server.onrender.com/sentmail",
@@ -45,10 +52,13 @@ function FeedBackCard() {
           document.getElementById("subject").value = "";
           document.getElementById("message").value = "";
         } else showToast("Something went wrong, please try again later");
+
+        setClicked(false);
       })
       .catch((er) => {
         console.error(er);
         showToast("Something went wrong, please try again later");
+        setClicked(false);
       });
   };
 
@@ -98,27 +108,22 @@ function FeedBackCard() {
       />
       <button
         type="button"
-        className={`py-4 px-6 mt-4 bg-blue-gradient font-poppins font-medium text-[18px] text-primary outline-none rounded-[10px]`}
+        id="submit-btn"
+        className={`py-4 px-6 mt-4 bg-blue-gradient flex justify-center font-poppins font-medium text-[22px] text-primary outline-none rounded-[10px]`}
         onClick={sentMail}
       >
         Submit
+        <Vortex
+          visible={isClicked}
+          height="50"
+          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
+          width="50"
+          wrapperStyle={{}}
+          wrapperClass="ml-4 mt-[-9px] "
+        />
       </button>
+
       <ToastContainer />
-      {/* <img src={quotes} className=" w-[42px] h-[27px] object-contain" />
-      <p className=" font-poppins font-normal text-[18px] leading-[32px] text-white my-10">
-        {content}
-      </p>
-      <div className=" flex flex-row">
-        <img src={img} alt={name} className="w-[48px] h-[48px] rounded-full" />
-        <div className=" flex flex-col ml-4">
-          <h4 className=" font-poppins font-semibold text-[20px] leading-[32px] text-white">
-            {name}
-          </h4>
-          <p className=" font-poppins font-normal text-[16px] leading-[24px] text-dimWhite">
-            {title}
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 }

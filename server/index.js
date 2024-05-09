@@ -7,14 +7,22 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
-//app.use(express.static("src"));
-app.use(express.static(path.join(__dirname, "../")));
 
-// app.get("*.jsx", (req, res, next) => {
-//   res.setHeader("Content-Type", "text/javascript");
-//   next();
-// });
+const whitelist = ["https://brainz-mehc.onrender.com"];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
+app.use(express.static(path.join(__dirname, "../")));
 
 app.post("/sentmail", async (req, res) => {
   console.log(req.body);
@@ -34,8 +42,6 @@ app.post("/sentmail", async (req, res) => {
       Authorization: "Basic " + btoa(key + ":x"),
       "content-Type": "application/json",
     },
-
-    // body: JSON.stringify(contactData),
   };
   try {
     const response = await axios.post(url, ticketData, options);
@@ -48,7 +54,5 @@ app.post("/sentmail", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 8080, () => {
-  console.log(
-    `Middleware Server listening at ${process.env.PORT || 8080}... 👍`
-  );
+  console.log(`My Server running at ${process.env.PORT || 8080}`);
 });
