@@ -118,11 +118,11 @@ function PrivacyPolicy() {
           <p>
             <strong>Website</strong> refers to Brainz, accessible from{" "}
             <a
-              href="https://braniz.netlify.app"
+              href="https://brainz-mehc.onrender.com"
               rel="external nofollow noopener"
               target="_blank"
             >
-              https://braniz.netlify.app
+              https://brainz-mehc.onrender.com
             </a>
           </p>
         </li>
@@ -600,11 +600,11 @@ function PrivacyPolicy() {
           <p>
             By visiting this page on our website:{" "}
             <a
-              href="https://braniz.netlify.app/#contact-form"
+              href="https://brainz-mehc.onrender.com/#contact-form"
               rel="external nofollow noopener"
               target="_blank"
             >
-              https://braniz.netlify.app/#contact-form
+              https://brainz-mehc.onrender.com/#contact-form
             </a>
           </p>
         </li>
