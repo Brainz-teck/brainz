@@ -14,7 +14,7 @@ function Footer() {
       {privacy && (
         <div
           id="privacy-policy"
-          className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full text-white font-poppins border border-slate-700 px-4 py-4 rounded-lg`}
+          className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full text-slate-400 font-poppins border border-slate-700 px-4 py-4 rounded-lg`}
         >
           <PrivacyPolicy />
           <div className=" pr-3">
@@ -22,7 +22,7 @@ function Footer() {
               title="Close"
               src={cross}
               alt="Cancel"
-              className=" hover:cursor-pointer w-28 "
+              className=" hover:cursor-pointer w-14 "
               onClick={() => setPrivacy(!privacy)}
             />
           </div>
@@ -32,7 +32,7 @@ function Footer() {
       {condition && (
         <div
           id="terms-conditions"
-          className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full text-white font-poppins border border-slate-700 px-4 py-4 rounded-lg`}
+          className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full text-slate-400 font-poppins border border-slate-700 px-2 py-4 rounded-lg`}
         >
           <TermsAndConditions />
 
@@ -41,7 +41,7 @@ function Footer() {
               title="Close"
               src={cross}
               alt="Cancel"
-              className=" hover:cursor-pointer w-28 "
+              className=" hover:cursor-pointer w-14 "
               onClick={() => setCondition(!condition)}
             />
           </div>

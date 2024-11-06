@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../style";
-import { discount, robot, saas } from "../assets";
-import GetStarted from "./GetStarted";
+import { saas } from "../assets";
+
 function Hero() {
   return (
     <section

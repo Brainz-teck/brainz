@@ -9,8 +9,11 @@ function PrivacyPolicy() {
         className="grid max-w-screen-xl mx-auto px-4"
       >
         <div>
-          <h3 className="font-sans text-3xl text-orange-200 ">
+          <h3 className="font-sans text-4xl text-orange-200 ">
             Privacy Policy
+          </h3>
+          <h3 className="font-sans mt-2 text-2xl text-slate-500">
+            Effective Date: 01 May 2024
           </h3>
           <div className="mt-2">
             This Privacy Policy explains how{" "}
@@ -29,11 +32,11 @@ function PrivacyPolicy() {
             </p>
             <ul className=" mt-2">
               <li>
-                <b className=" pr-1">Personal Information:</b>Name, email
+                <b className="pr-1">Personal Information:</b>Name, email
                 address, and physical address.
               </li>
               <li>
-                <b className=" pr-1 mt-1">Integration Credentials: </b>API keys,
+                <b className="pr-1">Integration Credentials: </b>API keys,
                 access tokens, and other credentials required to connect to the
                 software tools you use.
               </li>
@@ -48,7 +51,7 @@ function PrivacyPolicy() {
             </p>
             <ul className=" mt-2">
               <li>
-                <b className=" pr-1">Service Provision:</b>To enable app
+                <b className="pr-1">Service Provision:</b>To enable app
                 integrations, customizations, and functionality within the
                 software tools you use.
               </li>

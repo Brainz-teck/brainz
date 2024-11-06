@@ -67,7 +67,7 @@ function FeedBackCard() {
       id="contact-form"
       className=" flex justify-between flex-col px-10 py-12 rounded-[20px] w-full  md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
     >
-      <h4 className={`${styles.heading2} text-yellow-200 font-poppins`}>
+      <h4 className={`${styles.heading2} text-cyan-200 font-poppins`}>
         Write to us
       </h4>
       {/* <label htmlFor="name" className="block text-yellow-200 ">
@@ -79,7 +79,7 @@ function FeedBackCard() {
         className="mt-1 p-2 border bg-black-gradient rounded-md w-full border-stone-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         placeholder="Enter your name"
       /> */}
-      <label htmlFor="email" className="block text-yellow-200 ">
+      <label htmlFor="email" className="block text-slate-200">
         Email
       </label>
       <input
@@ -88,7 +88,7 @@ function FeedBackCard() {
         className="mt-1 p-2 border bg-black-gradient rounded-md w-full border-stone-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
         placeholder="Enter your Email"
       />
-      <label htmlFor="subject" className="block text-yellow-200 ">
+      <label htmlFor="subject" className="block text-slate-200 ">
         Subject
       </label>
       <input
@@ -97,7 +97,7 @@ function FeedBackCard() {
         className="mt-1 p-2 border bg-black-gradient rounded-md w-full border-stone-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
         placeholder="Enter your Subject"
       />
-      <label htmlFor="message" className="block text-yellow-200 ">
+      <label htmlFor="message" className="block text-slate-200 ">
         Message
       </label>
       <textarea

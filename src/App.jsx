@@ -4,14 +4,10 @@ import styles from "./style";
 import {
   Navbar,
   Hero,
-  CardDeal,
   Business,
-  Button,
   Clients,
   CTA,
-  FeedBackCard,
   Footer,
-  GetStarted,
   Testimonials,
 } from "./components";
 
