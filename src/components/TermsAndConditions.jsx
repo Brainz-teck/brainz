@@ -123,8 +123,11 @@ function TermsAndConditions() {
           </h5>
           <div>
             <p className="mt-2.5">
-              To the fullest extent permitted by law, [Your Startup Name] shall
-              not be liable for any indirect, incidental, special,
+              To the fullest extent permitted by law,{" "}
+              <span className="tracking-wider text-lg text-gradient">
+                Brainz
+              </span>{" "}
+              shall not be liable for any indirect, incidental, special,
               consequential, or punitive damages, including but not limited to
               loss of profits, data, or goodwill arising from your use of our
               services. Our total liability for any claim arising from or
